@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Classifier</title>
+  </head>
+  <body>
+    <header>
+      <nav></nav>
+    </header>
+    <section>
+      <h1>Input the review:</h1>
+      <form action="{% url 'prediction' %}" method="post">
+        {% csrf_token %}
+
+        <div>
+<!--          <label>-->
+<!--            <input type="text" name="text" placeholder="This movie is disgustingly good!"-->
+<!--                   size="50"/>-->
+            <textarea name="text" style="width:250px;height:150px;" maxlength=512 placeholder="This movie is disgustingly good!"></textarea>
+<!--          </label>-->
+        </div>
+
+        <input type="submit" value="submit and get classification" />
+
+      </form>
+      <h2>Prediction: </h2>
+      <div class="output">
+        <h4>Text:       {{settings.text}}</h4>
+        <h3>Stars:       {{settings.stars}} / 10</h3>
+        <h3>Sentiment:  {{settings.sentiment}}</h3>
+      </div>
+    </section>
+  </body>
+</html>

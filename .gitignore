@@ -1,4 +1,10 @@
 /venv
+/venv_2
 /django_site/db.sqlite3
 /django_site/myapp/migrations/
 /.idea/
+/try_model.ipynb
+/django_site/myapp/to_delete.py
+/django_site/myapp/to_delete.py
+/django_site/myapp/bert_1/
+/requirements_1.5.txt
