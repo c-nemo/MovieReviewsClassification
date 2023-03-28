@@ -1,21 +1,30 @@
 from django.apps import AppConfig
 
-# import torch
+import torch
 import numpy as np
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from transformers import TextClassificationPipeline
 
+e = 0.2
 
-def pos_neg_search(arr):
+def pos_neg_search(arr, e):
     pn = np.argmax([np.sum(arr[:4]), np.sum(arr[6:])])
+    # print(np.sum(arr[:4]), np.sum(arr[6:]))
+    if abs(np.sum(arr[:4]) - np.sum(arr[6:])) < e:
+        return 'neutral'
     if pn == 1:
         return 'positive'
-    if pn == 0:
-        return 'negative'
-    return 'neutral'
+    return 'negative'
 
-def binary_search(arr):
+def binary_search(arr, e):
     pn = np.argmax([np.sum(arr[:4]), np.sum(arr[6:])])
+
+    if abs(np.sum(arr[:4]) - np.sum(arr[6:])) < e:
+        if pn == 0:
+            return 5
+        else:
+            return 6
+
     if pn == 0:
         pn = np.argmax([np.sum(arr[:2]), np.sum(arr[2:4])])
         if pn == 0:
@@ -51,15 +60,15 @@ def get_arr_from_label_scores(ls):
 
 def get_prediction(ls):
     arr = get_arr_from_label_scores(ls)
-    pred_3 = pos_neg_search(arr)
-    pred_10 = binary_search(arr)
+    pred_3 = pos_neg_search(arr, e)
+    pred_10 = binary_search(arr, e)
     return {'sentiment' : pred_3, 'stars' : pred_10}
 
 class MyappConfig(AppConfig):
     name = 'bert'
     PATH = './bert_1/'
-    PATH = 'bert-base-uncased'
-    model = AutoModelForSequenceClassification.from_pretrained(PATH, num_labels=10)
-    tokenizer = AutoTokenizer.from_pretrained(PATH)
+    PATH = 'c-nemo/bert-for-movie-review-classification'
+    model = AutoModelForSequenceClassification.from_pretrained(PATH, use_auth_token='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')
+    tokenizer = AutoTokenizer.from_pretrained(PATH, use_auth_token='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')
     pipe = TextClassificationPipeline(model=model, tokenizer=tokenizer, return_all_scores=True)
     get_prediction = get_prediction
