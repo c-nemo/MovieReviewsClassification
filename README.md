@@ -1,8 +1,14 @@
 # MovieReviewsClassification
 *Предсказание рейтинга по тексту отзыва на английском*
 
-## Протестировать модель можно по ссылке:
-https://captainnemo.pythonanywhere.com/app/prediction
+## Пример работы сайта
+
+<kbd>
+
+<img src="https://user-images.githubusercontent.com/86519457/233077318-71c35b26-6a66-497f-bc38-1cd4f53aee98.png" />
+<img src="https://user-images.githubusercontent.com/86519457/233077698-c29d2ab3-0188-452b-9321-2eb88696b755.png" />
+
+</kbd>
 
 ## Структура репозитория
 
@@ -19,3 +25,4 @@ https://captainnemo.pythonanywhere.com/app/prediction
 
 - results - результаты на тестовой выборке
 
+- report - отчет о выборе и обучении моделей, анализ датасета
