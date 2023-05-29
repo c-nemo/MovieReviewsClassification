@@ -1,6 +1,8 @@
 # MovieReviewsClassification
 *Предсказание рейтинга по тексту отзыва на английском*
 
+[Отчет по решению](https://github.com/c-nemo/MovieReviewsClassification/blob/main/report/%D0%9E%D1%82%D1%87%D0%B5%D1%82_%D0%93%D1%80%D0%B8%D0%BD%D0%B0%D1%82%D0%BE%D0%BC.pdf)
+
 ## Пример работы сайта
 
 <kbd>
