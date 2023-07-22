@@ -5,15 +5,12 @@
 
 ## Пример работы сайта
 
-<kbd>
+![image](https://github.com/c-nemo/MovieReviewsClassification/assets/86519457/0739d001-17b6-43f9-a1b7-e296dd1276aa)
 
-<img src="https://user-images.githubusercontent.com/86519457/233077318-71c35b26-6a66-497f-bc38-1cd4f53aee98.png" />
-<img src="https://user-images.githubusercontent.com/86519457/233077698-c29d2ab3-0188-452b-9321-2eb88696b755.png" />
-
-</kbd>
 
 ## Структура репозитория
 
+- streamlit_app - веб-приложение streamlit
 - dataset_generation_notebooks - генерация датасетов из папки
 
   - make_csv_from_folder.ipynb - генерация первичного датасета
@@ -23,7 +20,7 @@
   - Reviews_classification_binary_tree.ipynb - fine-tuning "bert-base-uncased" for classification on balanced dataset, with binary-tree approach to prediction, 2 epochs
   - under-multi-2.ipynb - fine-tuning "bert-base-uncased" fot multilabel classification, 2 epochs
   
-- django_site - веб приложение
+- django_site - веб-приложение django
 
 - results - результаты на тестовой выборке
 
